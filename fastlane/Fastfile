@@ -502,7 +502,10 @@ platform :ios do
 
     # Sync the provisioning profiles using match
     if ENV['SYNC_PROVISIONING_PROFILES'] == 'true' && !ENV['MATCH_PASSWORD'].nil? && !ENV['MATCH_PASSWORD'].empty?
-      match(type: ENV['MATCH_TYPE'] || 'adhoc')
+      match(
+        type: ENV['MATCH_TYPE'] || 'adhoc',
+        readonly: false
+      )
     end
   end
 
